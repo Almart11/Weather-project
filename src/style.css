@@ -4,6 +4,7 @@ body {
   max-width: 600px;
   margin: 50px auto;
   border: 1px solid #939aa9;
+  border-radius: 10px;
 }
 h1 {
   color: #04c3ff;

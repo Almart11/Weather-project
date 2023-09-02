@@ -29,7 +29,22 @@
           <i class="fa-solid fa-cloud-moon-rain rain-moon-icon"></i>
         </div>
         <div class="col-6">
-          <div id="date">Sun, Jul 16 19:29</div>
+          <div class="weather">
+            <form id="searching">
+              <div class="mb-3">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="city"
+                  aria-describedby="cityHelp"
+                  placeholder="Search for a different city"
+                  autocomplete="off"
+                />
+                <input type="submit" value="Search" />
+              </div>
+            </form>
+            <div id="date">Sun, Jul 16 19:29</div>
+          </div>
         </div>
         <div class="details-weather">
           <div>Humidity <span id="humidity">80</span>%</div>

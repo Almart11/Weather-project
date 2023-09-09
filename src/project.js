@@ -40,17 +40,27 @@ function showWeather(response) {
   humidity.innerHTML = response.data.main.humidity;
   let pressure = document.querySelector("#pressure");
   pressure.innerHTML = response.data.main.pressure;
+  let icon = document.querySelector("#icon");
+  icon.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  icon.setAttribute("alt", response.data.weather[0].description);
+}
+
+function searchCity(city) {
+  let apiKey = "17cb293858a505cd5ee18684264f6ae9";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(showWeather);
 }
 
 function showCity(event) {
   event.preventDefault();
-  let apiKey = "17cb293858a505cd5ee18684264f6ae9";
-  let units = "metric";
   let cityInput = document.querySelector("#city");
-  let city = cityInput.value;
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
-  axios.get(apiUrl).then(showWeather);
+  searchCity(cityInput.value);
 }
 
 let cityForm = document.querySelector("#searching");
 cityForm.addEventListener("submit", showCity);
+
+searchCity("Caracas");

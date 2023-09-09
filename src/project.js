@@ -1,3 +1,34 @@
+let time = document.querySelector("#date");
+let currentTime = new Date();
+
+function formatDate(date) {
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  let months = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
+
+  let hour = date.getHours();
+  let minutes = date.getMinutes();
+  let day = days[date.getDay()];
+  let month = months[date.getMonth()];
+  let currentDate = date.getDate();
+
+  time.innerHTML = `${day}, ${month} ${currentDate}, ${hour}:${minutes} `;
+}
+formatDate(currentTime);
+
 function showWeather(response) {
   let cityInput = document.querySelector("h1");
   cityInput.innerHTML = response.data.name;
